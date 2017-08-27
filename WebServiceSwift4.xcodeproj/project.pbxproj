@@ -1,0 +1,326 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F42952BD1F5333D400F73DD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42952BC1F5333D400F73DD9 /* AppDelegate.swift */; };
+		F42952BF1F5333D400F73DD9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42952BE1F5333D400F73DD9 /* ViewController.swift */; };
+		F42952C21F5333D400F73DD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F42952C01F5333D400F73DD9 /* Main.storyboard */; };
+		F42952C51F5333D400F73DD9 /* WebServiceSwift4.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F42952C31F5333D400F73DD9 /* WebServiceSwift4.xcdatamodeld */; };
+		F42952C71F5333D400F73DD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F42952C61F5333D400F73DD9 /* Assets.xcassets */; };
+		F42952CA1F5333D400F73DD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F42952C81F5333D400F73DD9 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F42952B91F5333D400F73DD9 /* WebServiceSwift4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebServiceSwift4.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F42952BC1F5333D400F73DD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F42952BE1F5333D400F73DD9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F42952C11F5333D400F73DD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F42952C41F5333D400F73DD9 /* WebServiceSwift4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WebServiceSwift4.xcdatamodel; sourceTree = "<group>"; };
+		F42952C61F5333D400F73DD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F42952C91F5333D400F73DD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F42952CB1F5333D400F73DD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F42952B61F5333D400F73DD9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F42952B01F5333D400F73DD9 = {
+			isa = PBXGroup;
+			children = (
+				F42952BB1F5333D400F73DD9 /* WebServiceSwift4 */,
+				F42952BA1F5333D400F73DD9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F42952BA1F5333D400F73DD9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F42952B91F5333D400F73DD9 /* WebServiceSwift4.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F42952BB1F5333D400F73DD9 /* WebServiceSwift4 */ = {
+			isa = PBXGroup;
+			children = (
+				F42952BC1F5333D400F73DD9 /* AppDelegate.swift */,
+				F42952BE1F5333D400F73DD9 /* ViewController.swift */,
+				F42952C01F5333D400F73DD9 /* Main.storyboard */,
+				F42952C61F5333D400F73DD9 /* Assets.xcassets */,
+				F42952C81F5333D400F73DD9 /* LaunchScreen.storyboard */,
+				F42952CB1F5333D400F73DD9 /* Info.plist */,
+				F42952C31F5333D400F73DD9 /* WebServiceSwift4.xcdatamodeld */,
+			);
+			path = WebServiceSwift4;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F42952B81F5333D400F73DD9 /* WebServiceSwift4 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F42952CE1F5333D400F73DD9 /* Build configuration list for PBXNativeTarget "WebServiceSwift4" */;
+			buildPhases = (
+				F42952B51F5333D400F73DD9 /* Sources */,
+				F42952B61F5333D400F73DD9 /* Frameworks */,
+				F42952B71F5333D400F73DD9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WebServiceSwift4;
+			productName = WebServiceSwift4;
+			productReference = F42952B91F5333D400F73DD9 /* WebServiceSwift4.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F42952B11F5333D400F73DD9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Jordan Dixon";
+				TargetAttributes = {
+					F42952B81F5333D400F73DD9 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = XQP2GL9H76;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = F42952B41F5333D400F73DD9 /* Build configuration list for PBXProject "WebServiceSwift4" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F42952B01F5333D400F73DD9;
+			productRefGroup = F42952BA1F5333D400F73DD9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F42952B81F5333D400F73DD9 /* WebServiceSwift4 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F42952B71F5333D400F73DD9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F42952CA1F5333D400F73DD9 /* LaunchScreen.storyboard in Resources */,
+				F42952C71F5333D400F73DD9 /* Assets.xcassets in Resources */,
+				F42952C21F5333D400F73DD9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F42952B51F5333D400F73DD9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F42952BF1F5333D400F73DD9 /* ViewController.swift in Sources */,
+				F42952BD1F5333D400F73DD9 /* AppDelegate.swift in Sources */,
+				F42952C51F5333D400F73DD9 /* WebServiceSwift4.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F42952C01F5333D400F73DD9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F42952C11F5333D400F73DD9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F42952C81F5333D400F73DD9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F42952C91F5333D400F73DD9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F42952CC1F5333D400F73DD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F42952CD1F5333D400F73DD9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F42952CF1F5333D400F73DD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = XQP2GL9H76;
+				INFOPLIST_FILE = WebServiceSwift4/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.stickerbox.WebServiceSwift4;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		F42952D01F5333D400F73DD9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = XQP2GL9H76;
+				INFOPLIST_FILE = WebServiceSwift4/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.stickerbox.WebServiceSwift4;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F42952B41F5333D400F73DD9 /* Build configuration list for PBXProject "WebServiceSwift4" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F42952CC1F5333D400F73DD9 /* Debug */,
+				F42952CD1F5333D400F73DD9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F42952CE1F5333D400F73DD9 /* Build configuration list for PBXNativeTarget "WebServiceSwift4" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F42952CF1F5333D400F73DD9 /* Debug */,
+				F42952D01F5333D400F73DD9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F42952C31F5333D400F73DD9 /* WebServiceSwift4.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F42952C41F5333D400F73DD9 /* WebServiceSwift4.xcdatamodel */,
+			);
+			currentVersion = F42952C41F5333D400F73DD9 /* WebServiceSwift4.xcdatamodel */;
+			path = WebServiceSwift4.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F42952B11F5333D400F73DD9 /* Project object */;
+}
