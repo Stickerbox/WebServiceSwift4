@@ -25,15 +25,15 @@ extension URLSession {
         let task = dataTask(with: request) { (data, response, error) in
             
             guard error == nil, let data = data else {
-                completion(.failure(.invalidResponse(error)))
+                completion(.failure(.invalidResponse(error: error, id: config.id)))
                 return
             }
             
             do {
-                let test = try JSONDecoder().decode(config.resultType, from: data)
-                completion(.success(test))
+                let decoded = try JSONDecoder().decode(config.resultType, from: data)
+                completion(.success(decoded))
             } catch let error {
-                completion(.failure(.unableToDecode(error)))
+                completion(.failure(.unableToDecode(error: error, id: config.id)))
             }
             
         }
@@ -85,12 +85,14 @@ struct WebServiceConfiguration<C: Codable> {
     var queryParameters: [URLQueryItem]?
     var jsonBody: AnyObject?
     var formBody: [String: String]?
+    var id: String // for debugging
     
     init(endpoint: String, method: URLRequest.Request, resultType: C.Type) {
         self.baseURL = .main
         self.endpoint = endpoint
         self.method = method
         self.resultType = resultType
+        self.id = endpoint
     }
     
     init(endpoint: String, resultType: C.Type) {
@@ -98,6 +100,7 @@ struct WebServiceConfiguration<C: Codable> {
         self.endpoint = endpoint
         self.method = .get
         self.resultType = resultType
+        self.id = endpoint
     }
     
     mutating func appendQueryParameter(key: String, value: String) {
@@ -116,23 +119,23 @@ enum WebServiceResult<R: Codable> {
 // MARK: Errors
 
 enum WebServiceError: Error {
-    case invalidResponse(Error?)
+    case invalidResponse(error: Error?, id: String?)
     case invalidRequest
-    case unableToDecode(Error?)
-    case unableToEncode(Error?)
+    case unableToDecode(error: Error?, id: String?)
+    case unableToEncode(error: Error?, id: String?)
     
     var message: String {
         
         switch self {
             
-        case let .invalidResponse(error):
-            return "The response was invalid: \(error?.localizedDescription ?? "no message")"
+        case let .invalidResponse(response):
+            return "Error with \(response.id ?? "request")\nThe response was invalid: \(response.error?.localizedDescription ?? "no message")"
         case .invalidRequest:
             return "The request you constructed was invalid"
-        case let .unableToDecode(error):
-            return "Unable to decode: \(error?.localizedDescription ?? "no message")"
-        case let .unableToEncode(error):
-            return "Unable to encode: \(error?.localizedDescription ?? "no message")"
+        case let .unableToDecode(response):
+            return "Error with \(response.id ?? "request")\nUnable to decode: \(response.error?.localizedDescription ?? "no message")"
+        case let .unableToEncode(response):
+            return "Error with \(response.id ?? "request")\nUnable to encode: \(response.error?.localizedDescription ?? "no message")"
         }
     }
 }
