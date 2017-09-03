@@ -10,9 +10,9 @@
 		F42952BD1F5333D400F73DD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42952BC1F5333D400F73DD9 /* AppDelegate.swift */; };
 		F42952BF1F5333D400F73DD9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42952BE1F5333D400F73DD9 /* ViewController.swift */; };
 		F42952C21F5333D400F73DD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F42952C01F5333D400F73DD9 /* Main.storyboard */; };
-		F42952C51F5333D400F73DD9 /* WebServiceSwift4.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F42952C31F5333D400F73DD9 /* WebServiceSwift4.xcdatamodeld */; };
 		F42952C71F5333D400F73DD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F42952C61F5333D400F73DD9 /* Assets.xcassets */; };
 		F42952CA1F5333D400F73DD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F42952C81F5333D400F73DD9 /* LaunchScreen.storyboard */; };
+		F4F62B801F5C173F0068DA3F /* WebServiceConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F62B7F1F5C173F0068DA3F /* WebServiceConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +20,10 @@
 		F42952BC1F5333D400F73DD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F42952BE1F5333D400F73DD9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F42952C11F5333D400F73DD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F42952C41F5333D400F73DD9 /* WebServiceSwift4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WebServiceSwift4.xcdatamodel; sourceTree = "<group>"; };
 		F42952C61F5333D400F73DD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F42952C91F5333D400F73DD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F42952CB1F5333D400F73DD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4F62B7F1F5C173F0068DA3F /* WebServiceConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +62,7 @@
 				F42952C61F5333D400F73DD9 /* Assets.xcassets */,
 				F42952C81F5333D400F73DD9 /* LaunchScreen.storyboard */,
 				F42952CB1F5333D400F73DD9 /* Info.plist */,
-				F42952C31F5333D400F73DD9 /* WebServiceSwift4.xcdatamodeld */,
+				F4F62B7F1F5C173F0068DA3F /* WebServiceConfiguration.swift */,
 			);
 			path = WebServiceSwift4;
 			sourceTree = "<group>";
@@ -142,7 +142,7 @@
 			files = (
 				F42952BF1F5333D400F73DD9 /* ViewController.swift in Sources */,
 				F42952BD1F5333D400F73DD9 /* AppDelegate.swift in Sources */,
-				F42952C51F5333D400F73DD9 /* WebServiceSwift4.xcdatamodeld in Sources */,
+				F4F62B801F5C173F0068DA3F /* WebServiceConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,21 +306,9 @@
 				F42952D01F5333D400F73DD9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		F42952C31F5333D400F73DD9 /* WebServiceSwift4.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				F42952C41F5333D400F73DD9 /* WebServiceSwift4.xcdatamodel */,
-			);
-			currentVersion = F42952C41F5333D400F73DD9 /* WebServiceSwift4.xcdatamodel */;
-			path = WebServiceSwift4.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = F42952B11F5333D400F73DD9 /* Project object */;
 }
