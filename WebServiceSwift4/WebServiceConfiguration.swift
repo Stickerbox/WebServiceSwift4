@@ -76,24 +76,24 @@ extension URLSession {
 
 // The main configuration that you pass to the request function on URLSession
 
-struct WebServiceConfiguration<T: Codable> {
+struct WebServiceConfiguration<C: Codable> {
     
     var baseURL: BaseURL
     let endpoint: String
     let method: URLRequest.Request
-    let resultType: T.Type
+    let resultType: C.Type
     var queryParameters: [URLQueryItem]?
     var jsonBody: AnyObject?
     var formBody: [String: String]?
     
-    init(endpoint: String, method: URLRequest.Request, resultType: T.Type) {
+    init(endpoint: String, method: URLRequest.Request, resultType: C.Type) {
         self.baseURL = .main
         self.endpoint = endpoint
         self.method = method
         self.resultType = resultType
     }
     
-    init(endpoint: String, resultType: T.Type) {
+    init(endpoint: String, resultType: C.Type) {
         self.baseURL = .main
         self.endpoint = endpoint
         self.method = .get
@@ -108,14 +108,14 @@ struct WebServiceConfiguration<T: Codable> {
 
 // MARK: Result
 
-enum WebServiceResult<T: Codable> {
-    case success(T)
+enum WebServiceResult<R: Codable> {
+    case success(R)
     case failure(WebServiceError)
 }
 
 // MARK: Errors
 
-enum WebServiceError {
+enum WebServiceError: Error {
     case invalidResponse(Error?)
     case invalidRequest
     case unableToDecode(Error?)

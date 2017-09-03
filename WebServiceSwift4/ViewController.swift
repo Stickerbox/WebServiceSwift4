@@ -17,19 +17,18 @@ class ViewController: UIViewController {
         printUsers()
     }
     
-    
     // decoding a simple object
     private func printTestObject() {
         
-        let config = WebServiceConfiguration<Test>(endpoint: "/bins/si1xl", resultType: Test.self)
+        let config = WebServiceConfiguration<SimpleObject>(endpoint: "/bins/1hc1kp", resultType: SimpleObject.self)
         
         URLSession.shared.request(for: config) { result in
             
             switch result {
                 
-            case let .success(test):
-                print("------------TEST-----------")
-                print(test.a)
+            case let .success(simpleObject):
+                print("------------SIMPLEOBJECT-----------")
+                print(simpleObject.firstName)
                 
             case let .failure(error):
                 print(error.message)
@@ -63,8 +62,8 @@ class ViewController: UIViewController {
 
 // Data Structures
 
-struct Test: Codable {
-    let a: String
+struct SimpleObject: Codable {
+    let firstName: String
 }
 
 struct User: Codable {
