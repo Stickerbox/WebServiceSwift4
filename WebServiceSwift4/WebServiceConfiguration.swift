@@ -18,7 +18,7 @@ extension URLSession {
     func request<T>(for config: WebServiceConfiguration<T>, completion: @escaping (WebServiceResult<T>) -> Void) -> URLSessionDataTask? {
         
         guard let request = generateRequest(from: config) else {
-            completion(.failure(.invalidRequest))
+            completion(.failure(.invalidRequest(config.id)))
             return nil
         }
         
@@ -119,23 +119,23 @@ enum WebServiceResult<R: Codable> {
 // MARK: Errors
 
 enum WebServiceError: Error {
-    case invalidResponse(error: Error?, id: String?)
-    case invalidRequest
-    case unableToDecode(error: Error?, id: String?)
-    case unableToEncode(error: Error?, id: String?)
+    case invalidResponse(error: Error?, id: String)
+    case invalidRequest(String)
+    case unableToDecode(error: Error?, id: String)
+    case unableToEncode(error: Error?, id: String)
     
     var message: String {
         
         switch self {
             
         case let .invalidResponse(response):
-            return "Error with \(response.id ?? "request")\nThe response was invalid: \(response.error?.localizedDescription ?? "no message")"
-        case .invalidRequest:
-            return "The request you constructed was invalid"
+            return "Error with \(response.id)\nThe response was invalid: \(response.error?.localizedDescription ?? "no message")"
+        case let .invalidRequest(id):
+            return "The request you constructed for \(id) was invalid"
         case let .unableToDecode(response):
-            return "Error with \(response.id ?? "request")\nUnable to decode: \(response.error?.localizedDescription ?? "no message")"
+            return "Error with \(response.id)\nUnable to decode: \(response.error?.localizedDescription ?? "no message")"
         case let .unableToEncode(response):
-            return "Error with \(response.id ?? "request")\nUnable to encode: \(response.error?.localizedDescription ?? "no message")"
+            return "Error with \(response.id)\nUnable to encode: \(response.error?.localizedDescription ?? "no message")"
         }
     }
 }
