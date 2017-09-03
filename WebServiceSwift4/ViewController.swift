@@ -13,10 +13,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-          printUsers()
-          printTestObject()
-          printOtherTest()
+        printTestObject()
+        printUsers()
     }
+    
     
     // decoding a simple object
     private func printTestObject() {
@@ -37,30 +37,6 @@ class ViewController: UIViewController {
             }
             
         }
-    }
-    
-    // getting the URLSessionDataTask so you can cancel it later
-    private func printOtherTest() {
-        
-        let config = WebServiceConfiguration<OtherTest>(endpoint: "/bins/1c7i21", resultType: OtherTest.self)
-        
-        let task = URLSession.shared.requestWithTask(for: config) { result in
-            
-            switch result {
-                
-            case let .success(otherTest):
-                print("------------OTHERTEST-----------")
-                print(otherTest.title)
-                print(otherTest.bio)
-                
-            case let .failure(error):
-                print(error.message)
-            }
-        }
-        
-        // takes the same parameters as the .request function but you then need to manually call .resume()
-        task?.resume()
-        // task?.cancel()
     }
     
     // decoding an array
@@ -89,11 +65,6 @@ class ViewController: UIViewController {
 
 struct Test: Codable {
     let a: String
-}
-
-struct OtherTest: Codable {
-    let title: String
-    let bio: String
 }
 
 struct User: Codable {

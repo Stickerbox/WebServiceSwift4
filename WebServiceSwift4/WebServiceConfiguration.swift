@@ -14,34 +14,62 @@ enum BaseURL: String {
 
 extension URLSession {
     
-    // Two functions since you may want the URLSesionDataTask to cancel the request later, but I don't like the .resume() thing, so I created a seperate function that does it so you don't have to call .resume() everywhere, UNLESS you specifically call requestWithTask.
-    func requestWithTask<T>(for config: WebServiceConfiguration<T>, completion: @escaping (WebServiceResult<T>) -> Void) -> URLSessionDataTask? {
+    @discardableResult
+    func request<T>(for config: WebServiceConfiguration<T>, completion: @escaping (WebServiceResult<T>) -> Void) -> URLSessionDataTask? {
         
-        guard let url = URL(string: config.baseURL.rawValue + config.endpoint) else { completion(.failure(.invalidRequest)); return nil }
-        
-        var request = URLRequest(url: url)
-        request.method = config.method
-        
-        if let queryParameters = config.queryParameters {
-            queryParameters.forEach { request.addValue($0.value, forHTTPHeaderField: $0.key) }
+        guard let request = generateRequest(from: config) else {
+            completion(.failure(.invalidRequest))
+            return nil
         }
         
-        return dataTask(with: request) { (data, response, error) in
+        let task = dataTask(with: request) { (data, response, error) in
             
-            guard error == nil, let data = data else { completion(.failure(.invalidResponse)); return }
+            guard error == nil, let data = data else {
+                completion(.failure(.invalidResponse(error)))
+                return
+            }
             
             do {
                 let test = try JSONDecoder().decode(config.resultType, from: data)
                 completion(.success(test))
-            } catch {
-                completion(.failure(.unableToDecode))
+            } catch let error {
+                completion(.failure(.unableToDecode(error)))
             }
             
         }
+        
+        task.resume()
+        
+        return task
     }
     
-    func request<T>(for config: WebServiceConfiguration<T>, completion: @escaping (WebServiceResult<T>) -> Void) {
-        requestWithTask(for: config, completion: completion)?.resume()
+    private func generateRequest<T>(from config: WebServiceConfiguration<T>) -> URLRequest? {
+        
+        guard var url = URL(string: config.baseURL.rawValue + config.endpoint) else { return nil }
+        
+        // add config query parameters
+        var queryItems = [URLQueryItem]()
+        if let queryParameters = config.queryParameters {
+            queryItems.append(contentsOf: queryParameters)
+        }
+        
+        // add any query params
+        if !queryItems.isEmpty {
+            var components = URLComponents(url: url, resolvingAgainstBaseURL: true)!
+            components.queryItems = queryItems
+            url = components.url!
+        }
+        
+        var request = URLRequest(url: url)
+        request.method = config.method
+        
+        if let requestJSONBody = config.jsonBody {
+            let data = try! JSONSerialization.data(withJSONObject: requestJSONBody, options: [])
+            request.httpBody = data
+            request.setValue(ContentTypeJSON, forHTTPHeaderField: ContentTypeHttpHeader)
+        }
+        
+        return request
     }
     
 }
@@ -54,8 +82,9 @@ struct WebServiceConfiguration<T: Codable> {
     let endpoint: String
     let method: URLRequest.Request
     let resultType: T.Type
-    var queryParameters: [String: String]?
-    var body: [String: Any]?
+    var queryParameters: [URLQueryItem]?
+    var jsonBody: AnyObject?
+    var formBody: [String: String]?
     
     init(endpoint: String, method: URLRequest.Request, resultType: T.Type) {
         self.baseURL = .main
@@ -72,42 +101,38 @@ struct WebServiceConfiguration<T: Codable> {
     }
     
     mutating func appendQueryParameter(key: String, value: String) {
-        
-        if var queryParameters = self.queryParameters {
-            queryParameters[key] = value
-            self.queryParameters = queryParameters
-        } else {
-            let queryParameters = [key: value]
-            self.queryParameters = queryParameters
-        }
+        self.queryParameters?.append(URLQueryItem(name: key, value: value))
     }
     
 }
 
-// The result
+// MARK: Result
 
 enum WebServiceResult<T: Codable> {
     case success(T)
     case failure(WebServiceError)
 }
 
-// All the possible errors
+// MARK: Errors
 
 enum WebServiceError {
-    case invalidResponse
+    case invalidResponse(Error?)
     case invalidRequest
-    case unableToDecode
+    case unableToDecode(Error?)
+    case unableToEncode(Error?)
     
     var message: String {
         
         switch self {
             
-        case .invalidResponse:
-            return "The response was invalid"
+        case let .invalidResponse(error):
+            return "The response was invalid: \(error?.localizedDescription ?? "no message")"
         case .invalidRequest:
             return "The request you constructed was invalid"
-        case .unableToDecode:
-            return "The returned data was incompatible with the Codable type you provided"
+        case let .unableToDecode(error):
+            return "Unable to decode: \(error?.localizedDescription ?? "no message")"
+        case let .unableToEncode(error):
+            return "Unable to encode: \(error?.localizedDescription ?? "no message")"
         }
     }
 }
@@ -131,3 +156,8 @@ extension URLRequest {
     }
     
 }
+
+private let ContentTypeHttpHeader = "Content-Type"
+fileprivate let ContentTypeForm = "application/x-www-form-urlencoded"
+fileprivate let ContentTypeJSON = "application/json"
+fileprivate let ContentTypeMultipartForm = "multipart/form-data"
