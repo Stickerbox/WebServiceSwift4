@@ -30,7 +30,7 @@ extension URLSession {
             }
             
             do {
-                let decoded = try JSONDecoder().decode(config.resultType, from: data)
+                let decoded = try JSONDecoder().decode(T.self, from: data)
                 completion(.success(decoded))
             } catch let error {
                 completion(.failure(.unableToDecode(error: error, id: config.id)))
@@ -81,25 +81,22 @@ struct WebServiceConfiguration<C: Codable> {
     var baseURL: BaseURL
     let endpoint: String
     let method: URLRequest.Request
-    let resultType: C.Type
     var queryParameters: [URLQueryItem]?
     var jsonBody: AnyObject?
     var formBody: [String: String]?
     var id: String // for debugging
     
-    init(endpoint: String, method: URLRequest.Request, resultType: C.Type) {
+    init(endpoint: String, method: URLRequest.Request) {
         self.baseURL = .main
         self.endpoint = endpoint
         self.method = method
-        self.resultType = resultType
         self.id = endpoint
     }
     
-    init(endpoint: String, resultType: C.Type) {
+    init(endpoint: String) {
         self.baseURL = .main
         self.endpoint = endpoint
         self.method = .get
-        self.resultType = resultType
         self.id = endpoint
     }
     

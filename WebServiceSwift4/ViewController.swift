@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     // decoding a simple object
     private func printTestObject() {
         
-        let config = WebServiceConfiguration<SimpleObject>(endpoint: "/bins/1hc1kp", resultType: SimpleObject.self)
+        let config = WebServiceConfiguration<SimpleObject>(endpoint: "/bins/1hc1kp")
         
         URLSession.shared.request(for: config) { result in
             
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
     // decoding an array
     private func printUsers() {
         
-        let config = WebServiceConfiguration<[User]>(endpoint: "/bins/13zxmh", resultType: [User].self)
+        let config = WebServiceConfiguration<[User]>(endpoint: "/bins/13zxmh")
         
         URLSession.shared.request(for: config) { result in
             
