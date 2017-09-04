@@ -4,6 +4,8 @@ A custom wrapper for the Swift 4 Codable protocol and URLSession
 ## To get started
 All you need is to download the WebServiceConfiguration.swift file and put it somewhere in your project
 
+https://raw.githubusercontent.com/Stickerbox/WebServiceSwift4/master/WebServiceSwift4/WebServiceConfiguration.swift
+
 ## Usage
 This file allows you to create and perform web service requests very easily. For example, to perform a get request:
 
